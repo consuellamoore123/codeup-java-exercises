@@ -89,6 +89,8 @@ public class ControlFlowExercises {
             choice = scanner.next();
         } while (choice.equalsIgnoreCase("yes"));
 
+        scanner.close();
+
     }
 }
 

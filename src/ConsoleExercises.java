@@ -48,7 +48,11 @@ public class ConsoleExercises {
         System.out.println("The area of the classroom is: " + area);
         System.out.println("The perimeter of the classroom is: " + perimeter);
         System.out.println("The volume of the classroom is: " + volume);
+
+
+        sc.close();
     }
+
 }
 
 
