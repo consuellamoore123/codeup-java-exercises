@@ -2,15 +2,18 @@ import java.util.Scanner;
 
 public class ControlFlowExercises {
 
-
     //Create an integer variable i with a value of 5.
     //Create a while loop that runs so long as i is less than or equal to 15
     //Each loop iteration, output the current value of i, then increment i by one.
     public static void main(String[] args) {
-        for (int i = 5; i <= 15; i++) {
-            System.out.println(i);
+//        for (int i = 5; i <= 15; i++) {
+//            System.out.println(i);
+//        }
 
-
+        int b = 5;
+        while (b <= 15) {
+            System.out.print(b);
+            b++;
         }
         // Create a do-while loop that will count by 2's starting with 0 and ending at 100. Follow each number with a new line.
 
