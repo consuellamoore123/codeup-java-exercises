@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class MethodsExercises {
     static Scanner scanner = new Scanner(System.in);
 
+
     public static void main(String[] args) {
 //        System.out.println(add(2, 3));
 //        System.out.println(subtract(5, 2));
@@ -13,12 +14,9 @@ public class MethodsExercises {
 //        System.out.println(mod(20, 5));
 //        System.out.println(getInteger(1, 10));
 //        System.out.println(getFactorial(1, 10));
-        System.out.println(rollDice(4, 2));
+//        System.out.println(rollDice();
 
-//
-//
 
-    }
 //
 //
 //    public static int add(int num1, int num2) {
@@ -62,7 +60,7 @@ public class MethodsExercises {
 //           return getInteger(min, max);
 //        }
 //    }
-
+//
 //    public static String getFactorial() {
 //        long num;
 //        long factorial = 1;
@@ -73,32 +71,25 @@ public class MethodsExercises {
 //            factorial = factorial * i;
 //        }
 //        return num + "!=" + factorial;
-//
-//
-//    }
 
 
-    // Ask the user to enter the number of sides for a pair of dice
+    }
 
-
-
-
-
+    static int sideNum = Integer.parseInt(scanner.next());
     // Roll the dice and display the results
     public static int rollDice(int sideNum) {
 
+
         System.out.println("Enter the number of sides: ");
-        int sideNum = Integer.parseInt(scanner.next());
+
         int die1 = rollDice(sideNum);
         int die2 = rollDice(sideNum);
-
 
         System.out.println("Die 1: " + die1);
         System.out.println("Die 2: " + die2);
 
-
         return (int) (Math.random() * sideNum) + 1;
+//    }
+//
     }
-
-
 }
