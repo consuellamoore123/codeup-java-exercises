@@ -5,7 +5,7 @@ public class Input {
     private Scanner scanner;
 
     public Input() {
-        scanner = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
 
     }
 
