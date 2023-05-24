@@ -1,95 +1,141 @@
 import java.util.Scanner;
 
 public class MethodsExercises {
-    static Scanner scanner = new Scanner(System.in);
-
+    private static final Scanner input = new Scanner(System.in);
+    private static final int MAX_INPUT_RANGE = 10;
 
     public static void main(String[] args) {
-//        System.out.println(add(2, 3));
-//        System.out.println(subtract(5, 2));
-//        System.out.println(multiply(3, 5));
-//        System.out.println(division(15, 3));
-//        System.out.println(division(5, 0));
-//        System.out.println(division(0, 5));
-//        System.out.println(mod(20, 5));
-//        System.out.println(getInteger(1, 10));
-//        System.out.println(getFactorial(1, 10));
-//        System.out.println(rollDice();
+//        double result = add(5, 9);
+//        System.out.println(result);
+//
+//        System.out.println(subtract(5, 9));
+//        System.out.println(multiply(5, 9));
+//        System.out.println(divide(5, 0));
+//        System.out.println(mod(5, 9));
 
+//        System.out.print("Enter a number from 1 to " + MAX_INPUT_RANGE + ": ");
+//        System.out.println(getInteger(1, MAX_INPUT_RANGE));
 
-//
-//
-//    public static int add(int num1, int num2) {
-//        return num1 + num2;
-//    }
-//
-//
-//    public static int subtract(int num1, int num2) {
-//        return num1 - num2;
-//    }
-//
-//
-//    public static int multiply(int num1, int num2) {
-//        return num1 * num2;
-//    }
-//
-//
-//    public static int division(int num1, int num2) {
-//        if (!(num2 == 0)) {
-//            return num1 / num2;
-//        } else {
-//            System.out.println("cannot be done");
-//            return -1;
-//        }
-//
-//    }
-//
-//    public static int mod(int num1, int num2) {
-//        return num1 % num2;
-//
-//    }
-//
-//
-//    public static int getInteger(int min, int max) {
-//        System.out.print("Enter a number between " + min  + " and " + max + ":");
-//        int userInput = Integer.parseInt(scanner.next());
-//        if (userInput >= min && userInput <= max) {
-//            return userInput;
-//        } else {
-//            System.out.println("not in range");
-//           return getInteger(min, max);
-//        }
-//    }
-//
-//    public static String getFactorial() {
-//        long num;
-//        long factorial = 1;
-//        System.out.println("Enter a nun 1 to 10");
-//        num = Long.parseLong(scanner.next());
-//
-//        for (int i = 1; i <= num; i++) {
-//            factorial = factorial * i;
-//        }
-//        return num + "!=" + factorial;
+//        doSomeFactorials();
 
+        rollSomeDice();
+    }
+
+    private static double add(double a, double b) {
+        return a + b;
+    }
+
+    private static double subtract(double a, double b) {
+        return a - b;
+    }
+
+    private static double multiply(double a, double b) {
+//        return a * b;
+
+//        double sum = 0;
+//        for (int i = 0; i < b; i++) {
+//            sum += a;
+//        }
+//        return sum;
+
+        if(b == 0) {
+            return 0;
+        }
+        if(b == 1) {
+            return a;
+        }
+        return a + multiply(a, b - 1);
+    }
+
+    private static double divide(double a, double b) {
+        return a / b;
+    }
+
+    private static double mod(double a, double b) {
+        return a % b;
+    }
+
+    public static int getInteger(int min, int max) {
+        int result = input.nextInt();
+
+        // check if result is between min and max. if not call the function again
+        if(result < min || result > max) {
+            System.out.println("Dude, why can you not follow instructions!");
+            return getInteger(min, max);
+        }
+
+        return result;
+    }
+
+    private static void doSomeFactorials() {
+//        1. Prompt the user to enter an integer from 1 to 10.
+//        5. Assume that the user will enter an integer, but verify it’s between 1 and 10.
+        while(true) {
+            System.out.println("Let's do a factorial!");
+            System.out.print("Enter a number from 1 to " + MAX_INPUT_RANGE + ": ");
+            int factBase = getInteger(1, MAX_INPUT_RANGE);
+            // this really stinks to have to pull the newline out of the scanner
+            input.nextLine();
+
+            //        2. Display the factorial of the number entered by the user.
+            System.out.println(fact(factBase));
+
+            //        7. Continue only if the user agrees to.
+            if(!promptToContinue()) {
+                return;
+            }
+        }
 
     }
 
-    static int sideNum = Integer.parseInt(scanner.next());
-    // Roll the dice and display the results
-    public static int rollDice(int sideNum) {
+    //        4. Use a for loop to calculate the factorial.
+    private static long fact(int factBase) {
+//        6. Use the long type to store the factorial.
+        long result = 1;
+        for (int i = factBase; i >= 2; i--) {
+            result *= i;
+        }
+        return result;
+    }
+
+    private static boolean promptToContinue() {
+        //        3. Ask if the user wants to continue.
+        System.out.print("Continue? y/n ");
+        String continueString = input.nextLine();
+        if(!continueString.equalsIgnoreCase("y")) {
+            return false;
+        }
+        return true;
+    }
+
+    private static void rollSomeDice() {
+//        1. Ask the user to enter the number of sides for a pair of dice.
+        System.out.print("Enter the number of sides for a die: ");
+        int dieSides = getInteger(4, 20);
+        // this really stinks to have to pull the newline out of the scanner
+        input.nextLine();
+
+//        2. Prompt the user to roll the dice.
+        System.out.print("Press enter to roll some dice! ");
+        input.nextLine();
+
+//        3. "Roll" two n-sided dice, display the results of each,
+
+//        and then ask the user if he/she wants to roll the dice again.
+        int result = rollADie(dieSides);
+        System.out.println("You rolled a " + result);
+
+        result = rollADie(dieSides);
+        System.out.println("You rolled a " + result);
 
 
-        System.out.println("Enter the number of sides: ");
+//        4. Use static methods to implement the method(s) that generate the random numbers.
+//        5. Use the .random method of the java.lang.Math class to generate random numbers.
+    }
 
-        int die1 = rollDice(sideNum);
-        int die2 = rollDice(sideNum);
-
-        System.out.println("Die 1: " + die1);
-        System.out.println("Die 2: " + die2);
-
-        return (int) (Math.random() * sideNum) + 1;
-//    }
-//
+    private static int rollADie(int dieSides) {
+        // generate a number from 1 to dieSides
+        int result = (int) (Math.random() * dieSides + 1);
+        return result;
     }
 }
