@@ -20,6 +20,7 @@
          public void sayHello () {
 //TODO: print a message to the console using the person's name
              System.out.println("Hello, my name is " + name);
+
          }
          public static void main(String[] args) {
              Person person = new Person("Sarah Snith");
