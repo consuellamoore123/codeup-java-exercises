@@ -7,10 +7,7 @@ import java.util.Arrays;
 import static movies.MoviesArray.findAll;
 
 public class MoviesApplication {
-    // tells code to break at zero
     public static final int EXIT_APP = 0;
-
-    //tells code to come back -1 if invalid code is chosen. Forces user to choose a valid option
     public static final int INVALID_CHOICE = -1;
 
     public static Movie[] mlist = findAll();
@@ -19,7 +16,7 @@ public class MoviesApplication {
         Input in = new Input();
         System.out.println("Hello, welcome to my movie application!");
         int choice = INVALID_CHOICE;
-        while(choice != EXIT_APP) {
+        while (choice != EXIT_APP) {
             printMenu();
 
             choice = in.getInt(0, 6);
@@ -35,22 +32,20 @@ public class MoviesApplication {
         System.out.println("What would you like to do?");
         System.out.println("");
 
-//Shortcut way to print without repeating System.out.println()
         System.out.println("""
-0 - exit
-1 - view all movies
-2 - view movies in the animated category
-3 - view movies in the drama category
-4 - view movies in the horror category
-5 - view movies in the sci-fi category
-6 - add new movie
+                0 - exit
+                1 - view all movies
+                2 - view movies in the animated category
+                3 - view movies in the drama category
+                4 - view movies in the horror category
+                5 - view movies in the sci-fi category
+                6 - add new movie
 
-Enter your choice: """);
+                Enter your choice: """);
     }
 
-    private static void doChoice(int choice){
+    private static void doChoice(int choice) {
         switch (choice) {
-            //shortcut way to use case
             case 1 -> printMovies("all");
             case 2 -> printMovies("animated");
             case 3 -> printMovies("drama");
@@ -65,8 +60,8 @@ Enter your choice: """);
     }
 
     public static void printMovies(String category) {
-        for(Movie pMovie : mlist){
-            if(pMovie.getCategory().equals(category) || category.equalsIgnoreCase("all")){
+        for (Movie pMovie : mlist) {
+            if (pMovie.getCategory().equals(category) || category.equalsIgnoreCase("all")) {
                 System.out.println(pMovie);
             }
         }
@@ -78,13 +73,13 @@ Enter your choice: """);
         String name = in.getString();
         System.out.println("Enter new movies category: ");
         String category = in.getString();
-        Movie nMovie = new Movie(name,category);
+        Movie nMovie = new Movie(name, category);
         return nMovie;
     }
 
-    public static Movie[] addMovie(Movie[] movieArr, Movie movie){
-        Movie[] nMovie = Arrays.copyOf(movieArr, movieArr.length+1);
-        nMovie[nMovie.length-1] = movie;
+    public static Movie[] addMovie(Movie[] movieArr, Movie movie) {
+        Movie[] nMovie = Arrays.copyOf(movieArr, movieArr.length + 1);
+        nMovie[nMovie.length - 1] = movie;
         return nMovie;
     }
 }
