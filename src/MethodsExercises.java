@@ -60,6 +60,7 @@ public class MethodsExercises {
 
         // check if result is between min and max. if not call the function again
         if(result < min || result > max) {
+
             System.out.println("Dude, why can you not follow instructions!");
             return getInteger(min, max);
         }
