@@ -23,7 +23,7 @@
 
          }
          public static void main(String[] args) {
-             Person person = new Person("Sarah Snith");
+             Person person = new Person("Sarah Smith");
              System.out.println("Persons name: " + person.getName());
              person.sayHello();
 
