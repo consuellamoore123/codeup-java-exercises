@@ -11,11 +11,7 @@ public class Input {
 
     public boolean yesNo(){
         String userInput = scanner.nextLine();
-        if (userInput.equalsIgnoreCase("yes") || userInput.equalsIgnoreCase("y")){
-            return true;
-        } else {
-            return false;
-        }
+        return userInput.equalsIgnoreCase("yes") || userInput.equalsIgnoreCase("y");
     }
 
 //    public int getInt(){
@@ -64,6 +60,7 @@ public class Input {
                 return Integer.valueOf(input);
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter an integer.");
+                return getInt();
             }
         }
     }
@@ -75,16 +72,9 @@ public class Input {
                 return Double.valueOf(input);
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a number.");
+                return getDouble();
             }
         }
     }
 
-//    public static void main(String[] args) {
-//        Input inputOne = new Input();
-////        System.out.println("Get String: ");
-////        System.out.println(inputOne.getString());
-////        System.out.println("yesNo: ");
-////        System.out.println(inputOne.yesNo());
-//        System.out.println(inputOne.getInt(1, 10,"give me an integer between 1-10"));
-//    }
 }
