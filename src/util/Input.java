@@ -3,16 +3,13 @@ package util;
 import java.util.Scanner;
 
 public class Input {
+    private static Scanner scanner = new Scanner(System.in);
 
-    private Scanner scanner ;
-
-    public Input(){
-        this.scanner = new Scanner(System.in);
+    public static String getString() {
+        return scanner.nextLine();
     }
 
-    public String getString(){
-        return this.scanner.nextLine();
-    }
+
 
     public boolean yesNo(){
         String userInput = scanner.nextLine();
@@ -23,13 +20,13 @@ public class Input {
         }
     }
 
-    public int getInt(){
-        return this.scanner.nextInt();
-    }
-
-    public double getDouble(){
-        return this.scanner.nextDouble();
-    };
+//    public int getInt(){
+//        return this.scanner.nextInt();
+//    }
+//
+//    public double getDouble(){
+//        return this.scanner.nextDouble();
+//    };
 
 
     public int getInt(int min, int max, String prompt){
@@ -62,12 +59,34 @@ public class Input {
         return getDouble(min, max,prompt);
     }
 
-    public static void main(String[] args) {
-        Input inputOne = new Input();
-//        System.out.println("Get String: ");
-//        System.out.println(inputOne.getString());
-//        System.out.println("yesNo: ");
-//        System.out.println(inputOne.yesNo());
-        System.out.println(inputOne.getInt(1, 10,"give me an integer between 1-10"));
+    public static int getInt() {
+        while (true) {
+            try {
+                String input = getString();
+                return Integer.valueOf(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter an integer.");
+            }
+        }
     }
+
+    public static double getDouble() {
+        while (true) {
+            try {
+                String input = getString();
+                return Double.valueOf(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+            }
+        }
+    }
+
+//    public static void main(String[] args) {
+//        Input inputOne = new Input();
+////        System.out.println("Get String: ");
+////        System.out.println(inputOne.getString());
+////        System.out.println("yesNo: ");
+////        System.out.println(inputOne.yesNo());
+//        System.out.println(inputOne.getInt(1, 10,"give me an integer between 1-10"));
+//    }
 }
