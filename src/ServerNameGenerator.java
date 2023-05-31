@@ -10,7 +10,7 @@ public class ServerNameGenerator {
         adjectives[0] = "Tall";
         adjectives[1] = "Dark";
         adjectives[2] = "Handsome";
-        adjectives[2] = "Patient";
+        adjectives[3] = "Patient";
         adjectives[4] = "Funny";
         adjectives[5] = "Shiny";
         adjectives[6] = "Smart";
