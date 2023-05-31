@@ -1,6 +1,5 @@
 package util;
 
-import util.Input;
 
 public class InputTest {
 
@@ -11,7 +10,7 @@ public class InputTest {
         System.out.println("yesNo: ");
         System.out.println(inputOne.yesNo());
         System.out.println(inputOne.getInt(1, 10, "give me an integer between 1-10"));
-                System.out.print("Enter an integer between 1-10: ");
+                System.out.print("Enter an integer");
                 int num = Input.getInt();
                 System.out.println("You entered: " + num);
 
