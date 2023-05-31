@@ -9,8 +9,6 @@ public class Input {
         return scanner.nextLine();
     }
 
-
-
     public boolean yesNo(){
         String userInput = scanner.nextLine();
         if (userInput.equalsIgnoreCase("yes") || userInput.equalsIgnoreCase("y")){
